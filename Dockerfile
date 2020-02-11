@@ -1,18 +1,21 @@
 FROM rocker/shiny:3.6.1
 
-RUN apt-get update &&\
-  apt-get install libcurl4-openssl-dev libxml2-dev libssl-dev libjq-dev libv8-dev librdf0-dev libpoppler-cpp-dev
+RUN apt update &&\
+  apt install -y libcurl4-openssl-dev libxml2-dev libssl-dev libjq-dev libv8-dev librdf0-dev libpoppler-cpp-dev &&\
+  apt install -y r-base-core
 
 # Download and install library
 RUN R -e 'install.packages("remotes")'
 RUN R -e 'remotes::install_github("r-lib/remotes", ref = "97bbf81")'
 RUN R -e 'remotes::install_cran("shiny")'
 RUN R -e 'remotes::install_cran("golem")'
+# Have been skipped ----
 RUN R -e 'remotes::install_cran("processx")'
 RUN R -e 'remotes::install_cran("attempt")'
 RUN R -e 'remotes::install_cran("DT")'
 RUN R -e 'remotes::install_cran("glue")'
 RUN R -e 'remotes::install_cran("htmltools")'
+# /----
 RUN R -e 'remotes::install_cran("EML")'
 RUN R -e 'remotes::install_github("EDIorg/EMLassemblyline")'
 RUN R -e 'remotes::install_cran("RefManageR")'
@@ -30,7 +33,7 @@ RUN R -e 'remotes::install_cran("shinyBS")'
 RUN R -e 'remotes::install_cran("shinycssloaders")'
 RUN R -e 'remotes::install_cran("readtext")'
 
-mkdir -p /srv/shiny-server
+RUN mkdir -p /srv/shiny-server
 COPY MetaShARK_*.tar.gz /srv/shiny-server/app.tar.gz
 RUN chmod -R 755 /srv/shiny-server/
 RUN R -e 'remotes::install_local("/srv/shiny-server/app.tar.gz")'
