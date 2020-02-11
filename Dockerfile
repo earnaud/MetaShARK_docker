@@ -1,0 +1,27 @@
+FROM rocker/shiny:3.6.1
+RUN R -e 'install.packages("remotes")'
+RUN R -e 'remotes::install_github("r-lib/remotes", ref = "97bbf81")'
+RUN R -e 'remotes::install_cran("shiny")'
+RUN R -e 'remotes::install_cran("golem")'
+RUN R -e 'remotes::install_cran("processx")'
+RUN R -e 'remotes::install_cran("attempt")'
+RUN R -e 'remotes::install_cran("DT")'
+RUN R -e 'remotes::install_cran("glue")'
+RUN R -e 'remotes::install_cran("htmltools")'
+RUN R -e 'remotes::install_cran("EML")'
+RUN R -e 'remotes::install_cran("EMLassemblyline")'
+RUN R -e 'remotes::install_cran("RefManageR")'
+RUN R -e 'remotes::install_cran("data.table")'
+RUN R -e 'remotes::install_cran("dataone")'
+RUN R -e 'remotes::install_cran("datapack")'
+RUN R -e 'remotes::install_cran("dplyr")'
+RUN R -e 'remotes::install_cran("shinyTree")'
+RUN R -e 'remotes::install_cran("fs")'
+RUN R -e 'remotes::install_cran("mime")'
+RUN R -e 'remotes::install_cran("shinyFiles")'
+RUN R -e 'remotes::install_cran("shinydashboard")'
+RUN R -e 'remotes::install_cran("shinyjs")'
+COPY MetaShARK_*.tar.gz /app.tar.gz
+RUN R -e 'remotes::install_local("/app.tar.gz")'
+EXPOSE 3838
+CMD R -e "options('shiny.port'=3838,shiny.host='0.0.0.0');MetaShARK::run_app()"
