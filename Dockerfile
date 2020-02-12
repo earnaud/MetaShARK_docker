@@ -1,6 +1,6 @@
 FROM rocker/shiny:3.6.1
 
-RUN apt-get update && apt-get upgrade
+RUN apt-get update -y && apt-get upgrade -y
 
 # MetaShARK proper setup
 # RUN apt-get install -y r-base
@@ -13,6 +13,7 @@ RUN apt-get install -y libjq-dev
 RUN apt-get install -y libv8-dev 
 RUN apt-get install -y librdf0-dev 
 RUN apt-get install -y libpoppler-cpp-dev 
+RUN apt-get install -y libjpeg-dev
 
 # Download and install library
 RUN R -e 'install.packages("remotes")'
