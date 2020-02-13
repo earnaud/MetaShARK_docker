@@ -27,7 +27,7 @@ Server setup tests have been done within Genostack scope. Here are the followed 
 ```
 docker build -t metashark MetaShARK_docker/
 ```
-This step might take several minutes.
+This step might take several minutes.  
 5. Launch the app with: 
 ```
 docker run -d --rm -p 3838:3838 --name MWS metashark_with_server
