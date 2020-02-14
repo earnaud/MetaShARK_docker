@@ -30,5 +30,5 @@ docker build -t metashark MetaShARK_docker/
 This step might take several minutes.  
 5. Launch the app with: 
 ```
-docker run -d --rm -p 3838:3838 --name MWS metashark_with_server
+docker run -d --rm -p 3838:3838 --name MetaShARK_dockerized metashark
 ```
