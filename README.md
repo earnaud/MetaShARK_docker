@@ -25,9 +25,10 @@ Server setup tests have been done within Genostack scope. Here are the followed 
 3. Clone this git repository.
 4. Build the MetaShARK docker image with:
 ```
-docker build -t metashark_with_server MetaShARK_docker/
+docker build -t metashark MetaShARK_docker/
 ```
+This step might take several minutes.  
 5. Launch the app with: 
 ```
-docker run -d --rm -p 3838:3838 --name MWS metashark_with_server
+docker run -d --rm -p 3838:3838 --name MetaShARK_dockerized metashark
 ```
