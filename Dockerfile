@@ -52,4 +52,4 @@ COPY Rprofile.site /usr/local/lib/R/etc
 RUN chmod -R 755 /srv/shiny-server/
 EXPOSE 3838
 
-CMD ["R","-e MetaShARK::runMetashark()"]
+CMD ["R","-e MetaShARK::runMetashark(server = TRUE)"]
