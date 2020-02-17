@@ -27,7 +27,7 @@ RUN R -e 'remotes::install_cran("glue")'
 RUN R -e 'remotes::install_cran("htmltools")'
 # /----
 RUN R -e 'remotes::install_cran("EML")'
-RUN R -e 'remotes::install_github("EDIorg/EMLassemblyline")'
+RUN R -e 'remotes::install_github("EDIorg/EMLassemblyline", ref="fix41")'
 RUN R -e 'remotes::install_cran("RefManageR")'
 RUN R -e 'remotes::install_cran("data.table")'
 RUN R -e 'remotes::install_cran("dataone")'
@@ -42,6 +42,7 @@ RUN R -e 'remotes::install_cran("shinyjs")'
 RUN R -e 'remotes::install_cran("shinyBS")'
 RUN R -e 'remotes::install_cran("shinycssloaders")'
 RUN R -e 'remotes::install_cran("readtext")'
+RUN R -e 'remotes::install_github("ThinkRstat/tagsinput")'
 
 # Setup
 RUN mkdir -p /srv/shiny-server/apps/metashark
