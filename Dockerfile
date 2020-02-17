@@ -19,14 +19,16 @@ RUN apt-get install -y libjpeg-dev
 RUN R -e 'install.packages("remotes")'
 RUN R -e 'remotes::install_cran("shiny")'
 RUN R -e 'remotes::install_cran("golem")'
-# Have been skipped ----
 RUN R -e 'remotes::install_cran("processx")'
 RUN R -e 'remotes::install_cran("attempt")'
 RUN R -e 'remotes::install_cran("DT")'
 RUN R -e 'remotes::install_cran("glue")'
 RUN R -e 'remotes::install_cran("htmltools")'
-# /----
 RUN R -e 'remotes::install_cran("EML")'
+RUN R -e 'remotes::install_cran("lubridate")'
+RUN R -e 'remotes::install_cran("readr")'
+RUN R -e 'remotes::install_cran("reader")'
+RUN R -e 'remotes::install_cran("XML")'
 RUN R -e 'remotes::install_github("EDIorg/EMLassemblyline", ref="fix_41")'
 RUN R -e 'remotes::install_cran("RefManageR")'
 RUN R -e 'remotes::install_cran("data.table")'
