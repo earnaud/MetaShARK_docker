@@ -27,7 +27,7 @@ RUN R -e 'remotes::install_cran("glue")'
 RUN R -e 'remotes::install_cran("htmltools")'
 # /----
 RUN R -e 'remotes::install_cran("EML")'
-RUN R -e 'remotes::install_github("EDIorg/EMLassemblyline", ref="fix41")'
+RUN R -e 'remotes::install_github("EDIorg/EMLassemblyline", ref="fix_41")'
 RUN R -e 'remotes::install_cran("RefManageR")'
 RUN R -e 'remotes::install_cran("data.table")'
 RUN R -e 'remotes::install_cran("dataone")'
