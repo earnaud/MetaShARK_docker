@@ -19,15 +19,17 @@ RUN apt-get install -y libjpeg-dev
 RUN R -e 'install.packages("remotes")'
 RUN R -e 'remotes::install_cran("shiny")'
 RUN R -e 'remotes::install_cran("golem")'
-# Have been skipped ----
 RUN R -e 'remotes::install_cran("processx")'
 RUN R -e 'remotes::install_cran("attempt")'
 RUN R -e 'remotes::install_cran("DT")'
 RUN R -e 'remotes::install_cran("glue")'
 RUN R -e 'remotes::install_cran("htmltools")'
-# /----
 RUN R -e 'remotes::install_cran("EML")'
-RUN R -e 'remotes::install_github("EDIorg/EMLassemblyline")'
+RUN R -e 'install.packages("lubridate")'
+RUN R -e 'install.packages("readr")'
+RUN R -e 'install.packages("reader")'
+RUN R -e 'install.packages("XML")'
+RUN R -e 'remotes::install_github("EDIorg/EMLassemblyline", ref="fix_41")'
 RUN R -e 'remotes::install_cran("RefManageR")'
 RUN R -e 'remotes::install_cran("data.table")'
 RUN R -e 'remotes::install_cran("dataone")'
@@ -42,6 +44,7 @@ RUN R -e 'remotes::install_cran("shinyjs")'
 RUN R -e 'remotes::install_cran("shinyBS")'
 RUN R -e 'remotes::install_cran("shinycssloaders")'
 RUN R -e 'remotes::install_cran("readtext")'
+RUN R -e 'remotes::install_github("ThinkRstat/tagsinput")'
 
 # Setup
 RUN mkdir -p /srv/shiny-server/apps/metashark
@@ -52,4 +55,4 @@ COPY Rprofile.site /usr/local/lib/R/etc
 RUN chmod -R 755 /srv/shiny-server/
 EXPOSE 3838
 
-CMD ["R","-e MetaShARK::runMetashark(server = TRUE)"]
+CMD ["R","-e MetaShARK::runMetashark(server=TRUE)"]
