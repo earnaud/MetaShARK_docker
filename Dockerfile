@@ -1,6 +1,7 @@
 FROM rocker/shiny:3.6.1
 
 RUN apt-get update -y && apt-get upgrade -y
+RUN apt-get install apt-utils
 
 # MetaShARK proper setup
 # RUN apt-get install -y r-base
@@ -29,7 +30,7 @@ RUN R -e 'install.packages("lubridate")'
 RUN R -e 'install.packages("readr")'
 RUN R -e 'install.packages("reader")'
 RUN R -e 'install.packages("XML")'
-RUN R -e 'remotes::install_github("EDIorg/EMLassemblyline", ref="fix_41")'
+RUN R -e 'remotes::install_github("EDIorg/EMLassemblyline")'
 RUN R -e 'remotes::install_cran("RefManageR")'
 RUN R -e 'remotes::install_cran("data.table")'
 RUN R -e 'remotes::install_cran("dataone")'
@@ -45,11 +46,12 @@ RUN R -e 'remotes::install_cran("shinyBS")'
 RUN R -e 'remotes::install_cran("shinycssloaders")'
 RUN R -e 'remotes::install_cran("readtext")'
 RUN R -e 'remotes::install_github("ThinkRstat/tagsinput")'
+RUN R -e 'remotes::install_cran("config")'
 
 # Setup
 RUN mkdir -p /srv/shiny-server/apps/metashark
 COPY MetaShARK_*.tar.gz /srv/shiny-server/apps/metashark.tar.gz
-RUN R -e 'remotes::install_local("/srv/shiny-server/apps/metashark.tar.gz")'
+RUN R -e 'remotes::install_local("/srv/shiny-server/apps/metashark.tar.gz", dependencies=TRUE)'
 COPY Rprofile.site /usr/local/lib/R/etc
 
 RUN chmod -R 755 /srv/shiny-server/
