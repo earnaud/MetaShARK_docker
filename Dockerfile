@@ -4,7 +4,6 @@ RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install apt-utils
 
 # MetaShARK proper setup
-# RUN apt-get install -y r-base
 RUN apt-get install -y libcurl4-openssl-dev 
 RUN apt-get install -y libraptor2-dev 
 RUN apt-get install -y librasqal3-dev 
@@ -15,6 +14,7 @@ RUN apt-get install -y libv8-dev
 RUN apt-get install -y librdf0-dev 
 RUN apt-get install -y libpoppler-cpp-dev 
 RUN apt-get install -y libjpeg-dev
+RUN apt-get install -y xdg-utils
 
 # Download and install library
 RUN R -e 'install.packages("remotes")'
