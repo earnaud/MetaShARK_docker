@@ -49,6 +49,7 @@ RUN R -e 'remotes::install_github("ThinkRstat/tagsinput")'
 RUN R -e 'remotes::install_cran("config")'
 RUN R -e 'remotes::install_github("ropenscilabs/emldown")'
 RUN R -e 'remotes::install_cran("gdata")'
+RUN R -e 'remotes::install_github("earnaud/cedarr")'
 
 # Setup
 RUN mkdir -p /srv/shiny-server/apps/metashark
