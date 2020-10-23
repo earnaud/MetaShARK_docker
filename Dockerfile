@@ -1,6 +1,6 @@
 FROM rocker/shiny:3.6.1
 
-RUN apt-get update && apt-get install -y  default-jre-headless git-core librasqal3-dev libraptor2-dev libcurl4-gnutls-dev libcurl4-openssl-dev libgit2-dev libjq-dev libpoppler-cpp-dev librdf0-dev libssh2-1-dev libssl-dev libv8-dev libxml2-dev make pandoc pandoc-citeproc zlib1g-dev && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y  default-jre-headless git-core librasqal3-dev libraptor2-dev libcurl4-openssl-dev libgit2-dev libjq-dev libpoppler-cpp-dev librdf0-dev libssh2-1-dev libssl-dev libv8-dev libxml2-dev make pandoc pandoc-citeproc zlib1g-dev && rm -rf /var/lib/apt/lists/*
 
 RUN echo "options(repos = c(CRAN = 'https://cran.rstudio.com/'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site
 RUN R -e 'install.packages("remotes")'
