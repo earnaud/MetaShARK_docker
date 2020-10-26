@@ -20,6 +20,7 @@ RUN  apt-get install -y -f --no-install-recommends \
 	libjpeg-dev \
 	zlib1g-dev \
 	cargo \
+	libmagick++-dev \
     && apt-get clean \ 
     && rm -rf /var/lib/apt/lists/*
 
