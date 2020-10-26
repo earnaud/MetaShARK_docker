@@ -1,4 +1,4 @@
-FROM rocker/shiny:3.6.1
+FROM rocker/shiny:3.6.3
 
 RUN apt-get install -y software-properties-common
 RUN sudo add-apt-repository ppa:cran/libgit2
