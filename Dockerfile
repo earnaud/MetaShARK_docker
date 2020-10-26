@@ -3,7 +3,7 @@ FROM rocker/shiny:3.6.3
 RUN apt-get update --fix-missing -y \
     && apt-get install -y software-properties-common
 RUN sudo add-apt-repository ppa:cran/libgit2
-RUN  apt-get install -y -f \
+RUN  apt-get install -y -f --no-install-recommends \
 	default-jre-headless \
 	git-core \
 	libcurl4-openssl-dev \
@@ -32,7 +32,7 @@ RUN Rscript -e 'remotes::install_version("jsonlite",upgrade="never", version = "
 RUN Rscript -e 'remotes::install_version("data.table",upgrade="never", version = "1.13.0")'
 RUN Rscript -e 'remotes::install_version("RCurl",upgrade="never", version = "1.98-1.2")'
 RUN Rscript -e 'remotes::install_version("processx",upgrade="never", version = "3.4.4")'
-RUN Rscript -e 'remotes::install_version("knitr",upgrade="never", version = "1.29")'
+RUN Rscript -e 'remotes::install_version("knitr",upgrade="never", dependencies=TRUE, version = "1.29")'
 RUN Rscript -e 'remotes::install_version("htmltools",upgrade="never", version = "0.5.0")'
 RUN Rscript -e 'remotes::install_version("fs",upgrade="never", version = "1.5.0")'
 RUN Rscript -e 'remotes::install_version("attempt",upgrade="never", version = "0.3.1")'
