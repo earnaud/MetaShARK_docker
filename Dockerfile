@@ -18,6 +18,7 @@ RUN  apt-get install -y -f --no-install-recommends \
 	make pandoc \
 	pandoc-citeproc \
 	zlib1g-dev \
+	cargo \
     && apt-get clean \ 
     && rm -rf /var/lib/apt/lists/*
 
