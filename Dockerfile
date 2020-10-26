@@ -17,6 +17,7 @@ RUN  apt-get install -y -f --no-install-recommends \
 	libxml2-dev \
 	make pandoc \
 	pandoc-citeproc \
+	libjpeg-dev \
 	zlib1g-dev \
 	cargo \
     && apt-get clean \ 
