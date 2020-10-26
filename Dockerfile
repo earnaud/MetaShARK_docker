@@ -21,6 +21,8 @@ RUN  apt-get install -y -f --no-install-recommends \
 	zlib1g-dev \
 	cargo \
 	libmagick++-dev \
+	libharfbuzz-dev \
+	libfribidi-dev \
     && apt-get clean \ 
     && rm -rf /var/lib/apt/lists/*
 
