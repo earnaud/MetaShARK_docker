@@ -70,6 +70,7 @@ RUN Rscript -e 'remotes::install_version("EML",upgrade="never", version = "2.0.3
 RUN Rscript -e 'remotes::install_version("DT",upgrade="never", version = "0.15")'
 RUN Rscript -e 'remotes::install_version("golem",upgrade="never", version = "0.2.1")'
 RUN Rscript -e 'remotes::install_version("textutils",upgrade="never", version = "0.2-0")'
+RUN Rscript -e 'remotes::install_version("tippy",upgrade="never", version = "0.0.1")'
 RUN Rscript -e 'remotes::install_github("EDIorg/taxonomyCleanr@fc4d758c075d596013a18c1ae1e2cff4f5f8c2ae")'
 RUN Rscript -e 'remotes::install_github("ThinkR-open/tagsinput@9aa70ec34c6fa60ef317446daef4cfaf3b682d1d")'
 RUN Rscript -e 'remotes::install_github("ropenscilabs/emldown@8d98c8fc708dc1f2ecc8eec3d23a66e4f487e658")'
